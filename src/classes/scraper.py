@@ -1,4 +1,5 @@
 import csv
+import time
 
 import constants.constant as const
 import requests
@@ -37,6 +38,7 @@ class Scraper(object):
         csvfile.close()
             
     def _send_notification(self, price, second_hand_price):
+
         try:
             float_price = extract_numbers(price)
             float_second_hand_price = extract_numbers(second_hand_price)
@@ -61,6 +63,7 @@ class Scraper(object):
             price = data[0][0]
             second_hand_price = data[1][0] if length > 1 else price
             self._send_notification(price, second_hand_price)
+            time.sleep(2)
         except Exception as err:
             print(err)
             print('Error during scraping for product ' + parser.product_name + '. ERROR MESSAGE: ', err)

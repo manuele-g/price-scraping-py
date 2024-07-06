@@ -23,7 +23,7 @@ def telegram_notification(message: str):
 def prepare_message(is_used, product_name, price, site, url):
     product_msg = f'{emoji.emojize(':bullseye: ')}{product_name}'
     if is_used:
-        used_msg = f'{emoji.emojize(':red_exclamation_mark: ')}<b>PRODOTTO USATO<b>{emoji.emojize(' :red_exclamation_mark:')}'
+        used_msg = f'{emoji.emojize(':red_exclamation_mark: ')}PRODOTTO USATO{emoji.emojize(' :red_exclamation_mark:')}'
         product_msg = f'{used_msg}\n{product_msg}'
     site_msg = f'{emoji.emojize(':convenience_store: ')}{site}'
     price_msg = f'{emoji.emojize(':money_bag: ')}{price}'
