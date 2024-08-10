@@ -163,3 +163,5 @@ cython_debug/
 Export*
 
 *_scraper.py
+main.py
+constant.py

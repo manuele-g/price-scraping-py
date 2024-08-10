@@ -1,0 +1,13 @@
+[project]
+name = "price-scraping-py"
+version = "0.0.1"
+description = "A simple price scraping written in python"
+authors = [ {name = "Manuele", email = "manuele.guaita@gmail.com}]
+
+[project.dependencies]
+BeautifulSoup = "^4.12.3"
+requests = "^2.31.0"
+csv = "^1.0"
+emoji="^2.11.1"
+pyshorteners="^1.0.1"
+urllib3="^2.2.1"

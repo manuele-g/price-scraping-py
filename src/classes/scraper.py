@@ -23,7 +23,7 @@ class Scraper(object):
         print(data)
         existing_rows = []
         try:
-            with open(path, 'r',newline='') as readFile:
+            with open(path, 'r',newline='', encoding=const.UTF8_ENCODING) as readFile:
                 rd = csv.reader(readFile)
                 existing_rows = [line for line in rd]
         except FileNotFoundError:
@@ -36,7 +36,7 @@ class Scraper(object):
         if 'readFile' in locals():
             readFile.close()
         csvfile.close()
-            
+   
     def _send_notification(self, price, second_hand_price):
 
         try:
@@ -70,9 +70,11 @@ class Scraper(object):
 
 class ScraperFactory:
     def get_scraper(self, product):
-            if('amazon' in product.url):
+            if(const.AMAZON.lower() in product.url):
                 product_class = __import__('classes.amazon', fromlist=['object'])
-            elif ('unieuro' in product.url):
+            elif (const.UNIUERO.lower() in product.url):
                 product_class = __import__('classes.unieuro', fromlist=['object'])
+            elif (const.ZALANDO.lower() in product.url):
+                product_class = __import__('classes.zalando', fromlist=['object'])
             parser = product_class.Parser(product)
             return Scraper(parser, product.url)
